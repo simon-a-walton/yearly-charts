@@ -18,7 +18,7 @@ export function BarChart({ data, colours }: BarChartProps) {
     <div className="flex flex-col gap-2 w-full mt-6 transition-all duration-700">
       {top15Countries.map((country) => {
         const widthPercent = (country.Population / maxPopulation) * 100;
-        const colour = colours[country.Country];
+        const colour = colours[country.Country] || "#999";
 
         return (
           <div

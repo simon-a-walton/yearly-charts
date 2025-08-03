@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { dataset } from '@/lib/data/dataTypes';
 import { BarChart } from './_components/BarChart';
-import { getColourByIndex } from '@/lib/colours';
 import { Pagination } from './_components/Pagination';
+import { useColorMap } from './context/ColorMapContext';
 
 export interface iColourMap {
   [key: string]: string;
@@ -32,13 +32,9 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleKey);
   }, [nextYear, prevYear]);
 
-  // Assign each country to a colour
-  const colourMap = {} as iColourMap;
-  yearData.Countries.forEach(
-    (country, i) => (colourMap[country.Country] = getColourByIndex(i))
-  );
 
   const getYears = () => dataset.map((item) => item.Year);
+  const colourMap = useColorMap();
 
   return (
     <main className="p-6">

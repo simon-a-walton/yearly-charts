@@ -1,12 +1,23 @@
-import type { Metadata } from "next";
-import { Anton } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Anton } from 'next/font/google';
+import './globals.css';
+import rawData from './../lib/data/generated.json';
+import { ColorMapProvider } from './context/ColorMapContext';
+import { iPopulationByCountry, iYearlyData } from '@/lib/data/dataTypes';
 
-const anton = Anton({ weight: "400", subsets: ["latin"] });
+const allCountries = Array.from(
+  new Set(
+    rawData.flatMap((year: iYearlyData) =>
+      year.Countries.map((c: iPopulationByCountry) => c.Country)
+    )
+  )
+);
+
+const anton = Anton({ weight: '400', subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "World population by year",
-  description: "See the population changes over the years",
+  title: 'World population by year',
+  description: 'See the population changes over the years',
 };
 
 export default function RootLayout({
@@ -16,10 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${anton.className} antialiased`}
-      >
-        {children}
+      <body className={`${anton.className} antialiased`}>
+        <ColorMapProvider countries={allCountries}>{children}</ColorMapProvider>
       </body>
     </html>
   );
