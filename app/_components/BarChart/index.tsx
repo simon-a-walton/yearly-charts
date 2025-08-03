@@ -29,9 +29,9 @@ export function BarChart({ data, colours }: BarChartProps) {
   }, [data]);
 
   return (
-    <div className="relative h-[680px]" ref={containerRef}>
+    <div className="relative h-[500px]" ref={containerRef}>
       {top15Countries.map((dataPoint, index) => {
-        const barHeight = 45;
+        const barHeight = 35;
         const yTranslate = index * barHeight;
         const colour = colours[dataPoint.Country] || '#000';
         const widthPercent = (dataPoint.Population / maxPopulation) * 100;

@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <main className="p-6">
-      <h1 className="text-6xl font-bold mb-4 text-center font-impact">
+      <h1 className="text-6xl font-bold mb-4 text-center">
         World Population by Year
       </h1>
       <h2 className="text-5xl font-bold mb-4 text-center text-gray-500">

@@ -11,17 +11,20 @@ export const Pagination = ({
     currentIndex,
     onChange,
   }: PaginationProps) => {
+
+  const buttonStyle = "text-xs cursor-pointer px-4 py-2 bg-gray-500 text-white hover:bg-gray-700 rounded disabled:opacity-30";
+
   return (
     <div className="flex items-center justify-between mt-8">
       <button
-        className="px-4 py-2 bg-gray-500 text-white rounded disabled:opacity-30"
+        className={buttonStyle}
         onClick={() => onChange(currentIndex - 1)}
         disabled={currentIndex === 0}
       >
         Previous
       </button>
       <button
-        className="px-4 py-2 bg-gray-500 text-white rounded disabled:opacity-30"
+        className={buttonStyle}
         onClick={() => onChange(currentIndex + 1)}
         disabled={currentIndex === pages.length - 1}
       >
