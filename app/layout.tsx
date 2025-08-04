@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Anton } from 'next/font/google';
 import './globals.css';
 import rawData from './../lib/data/generated.json';
-import { ColorMapProvider } from './context/ColorMapContext';
+import { ColourMapProvider } from './context/ColourMapContext';
 import { iPopulationByCountry, iYearlyData } from '@/lib/data/dataTypes';
 
 const allCountries = Array.from(
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${anton.className} antialiased`}>
-        <ColorMapProvider countries={allCountries}>{children}</ColorMapProvider>
+        <ColourMapProvider countries={allCountries}>{children}</ColourMapProvider>
       </body>
     </html>
   );

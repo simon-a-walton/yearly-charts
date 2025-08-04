@@ -3,7 +3,7 @@
 import { dataset } from '@/lib/data/dataTypes';
 import { BarChart } from './_components/BarChart';
 import { Pagination } from './_components/Pagination';
-import { useColorMap } from './context/ColorMapContext';
+import { useColourMap } from './context/ColourMapContext';
 import usePagination from './hooks/usePagination';
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
   const yearData = dataset[index];
 
   const getYears = () => dataset.map((item) => item.Year);
-  const colourMap = useColorMap();
+  const colourMap = useColourMap();
 
   return (
     <main className="p-6">
