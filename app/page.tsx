@@ -21,7 +21,7 @@ export default function Home() {
       <h2 className="text-5xl font-bold mb-4 text-center text-gray-500">
         {yearData.Year}
       </h2>
-      <div className="mx-24">
+      <div className="lg:mx-24">
         <BarChart data={yearData.Countries} colours={colourMap} />
         <Pagination
           pages={getYears()}
