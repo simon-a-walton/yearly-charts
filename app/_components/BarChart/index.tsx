@@ -49,7 +49,7 @@ export function BarChart({ data, colours }: BarChartProps) {
               height: `${barHeight - 6}px`,
             }}
           >
-            <span className="w-32 truncate text-sm">{dataPoint.Country}</span>
+            <span className="w-32 truncate text-xs lg:text-sm">{dataPoint.Country}</span>
             <div className="w-full h-full overflow-hidden">
               <div
                 className="h-full rounded transition-all duration-500 ease-in-out"

@@ -15,10 +15,10 @@ export default function Home() {
 
   return (
     <main className="p-6">
-      <h1 className="text-6xl font-bold mb-4 text-center">
+      <h1 className="text-2xl lg:text-6xl font-bold lg:mb-4 text-center">
         World Population by Year
       </h1>
-      <h2 className="text-5xl font-bold mb-4 text-center text-gray-500">
+      <h2 className="text-2xl lg:text-5xl font-bold mb-4 text-center text-gray-500">
         {yearData.Year}
       </h2>
       <div className="lg:mx-24">
