@@ -1,37 +1,14 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
 import { dataset } from '@/lib/data/dataTypes';
 import { BarChart } from './_components/BarChart';
 import { Pagination } from './_components/Pagination';
 import { useColorMap } from './context/ColorMapContext';
-
-export interface iColourMap {
-  [key: string]: string;
-}
+import usePagination from './hooks/usePagination';
 
 export default function Home() {
-  const [index, setIndex] = useState(0);
+  const { index, setIndex } = usePagination({ datasetLength: dataset.length });
   const yearData = dataset[index];
-
-  const nextYear = useCallback(() => {
-    setIndex((i) => (i + 1 < dataset.length ? i + 1 : i));
-  }, []);
-
-  const prevYear = useCallback(() => {
-    setIndex((i) => (i - 1 >= 0 ? i - 1 : i));
-  }, []);
-
-  // Allow keys to change year
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextYear();
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevYear();
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [nextYear, prevYear]);
-
 
   const getYears = () => dataset.map((item) => item.Year);
   const colourMap = useColorMap();

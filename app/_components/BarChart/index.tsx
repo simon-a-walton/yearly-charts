@@ -1,8 +1,11 @@
 'use client';
 
 import { iPopulationByCountry } from '@/lib/data/dataTypes';
-import { iColourMap } from '@/app/page';
 import { useEffect, useRef } from 'react';
+
+export interface iColourMap {
+  [key: string]: string;
+}
 
 interface BarChartProps {
   data: Array<iPopulationByCountry>;
